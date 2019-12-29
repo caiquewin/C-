@@ -1,0 +1,207 @@
+name: .NET Core
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.2.108
+    - name: Build with dotnet
+      run: dotnet build --configuration Release
+using System;
+
+namespace Rodar
+{
+    class Program
+    {
+        static void Main(String[] args)
+        {
+            string firstName = "Caique";
+            float f1 = 35e3F;
+            string lastName = " Pereira";
+            string name = "caiquesey";
+            double caique = 451.23;
+            int idade = 22; // 4 Bytes capacidade de -2,147,483,648 até 2,147,483,647
+
+            const double dateBegin = 12.2019; // 8 Bytes suporta até 15 casas decimais 
+            bool trueV = true;
+            bool falsF = false;
+            char option1AA = 'a'; // for question 2 Bytes
+            char option1AB = 'b'; // for question 2 Bytes
+            char option1AC = 'c'; // for question 2 Bytes
+
+            float error = 10.2F; //ocupa o maxiamo de 6 a 7 casas decimais 4 Bytes 
+
+            Console.WriteLine(f1);
+            Console.WriteLine("Welcome " + name);
+            Console.WriteLine("This is first program in C#, date " + dateBegin);
+            Console.WriteLine("but iknow your name, he is " + firstName + lastName);
+
+                         // Daqui até aqui é  as variaveis que usaremos para converte tipo de dados 
+
+            int convertInt = 102; 
+            double convertDouble = 25.89; 
+            bool ConvertBool = true;
+
+            Console.WriteLine(Convert.ToString(convertInt));
+            Console.WriteLine(Convert.ToDouble(convertInt));
+            Console.WriteLine(Convert.ToInt32(convertDouble));
+            Console.WriteLine(Convert.ToString(ConvertBool));
+
+                                                      // fim exemplo convertção 
+
+                                            // Obtendo valores do usuário   (armazenar dados do usuário assim que digitar)
+
+            Console.WriteLine("Put your Nick.");
+
+            String nick = Console.ReadLine();
+
+            Console.WriteLine("Put your age");
+            int idadeNick = Convert.ToInt32(Console.ReadLine());
+
+                                            // fim exemplo de gravar dados 
+
+
+
+                                                    // Operações 
+
+
+
+                                             // MOSTRAR O MENOR VALOR, DESSES NUMEROS NO CONSOL
+
+
+            Console.WriteLine("Coloque abaixo dois valores e te retornaremos o valor mais baixo (VALORES INTEIROS)");
+            Console.WriteLine("Coloque seu primeiro valor");
+            long valor1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Coloque o seu segundo valor");
+            long valor2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(Math.Min(valor1,valor2)); 
+
+                                             // Encontra a raiz quadrada do numero :D 
+
+            Console.WriteLine("Coloque o numero que deseja encontrar a raiz quadrada !");
+            int Raiz = Convert.ToInt32(Console.ReadLine()); // ler valor pra encontrar a raiz quadrada
+            Console.WriteLine("sua raiz quadrada é " + Math.Sqrt(Raiz)); // mostrar a raiz quadrada
+
+                                            // Transforma valor negativo inteiro em positivo
+
+            Console.WriteLine("Coloque um numero negativo intiero e te voltaremos o valor positivo");
+            int absolutoPositivo = Convert.ToInt32(Console.ReadLine());// Ler o valor negativo inteiro
+            Console.WriteLine("O Valor possitivo é " + Math.Abs(absolutoPositivo)); // mostra o valor positivo
+
+                                             //Aredonda o número o mais próximo (Pros Engenheiros)
+
+            Console.WriteLine("Coloque o numero que deseja aredondar exemplo: 5.9564"); 
+            Double aredondar = Convert.ToDouble(Console.ReadLine()); // ele irar ler o número 
+            Console.WriteLine("o numero ficou " + Math.Round(aredondar));
+
+            // Fim operações
+
+                                                  // Contagem de quantidade de palavras
+
+
+            Console.WriteLine("Coloque qualquer palavra abaixo !");
+            string teste = Console.ReadLine();
+            Console.WriteLine("a palavra " + teste + " tem " + teste.Length + " palavras"); // No teste.Leght ele vai te mostrar quantaas palavras tem na string
+
+
+                                                  // Conectar duas instring transforma em 1
+
+            Console.WriteLine("Coloque o seu primeiro nome abaixo:");
+            String primeiro1 = Console.ReadLine();
+            Console.WriteLine("Coloque o sue Sobrenome abaixo:");
+            String segundo2 = Console.ReadLine();
+            string completo1 = String.Concat(primeiro1 + " ", segundo2);
+            Console.WriteLine(completo1);
+
+                                                           // Colocar String dentro de String 
+
+            Console.WriteLine("coloque o nome da sua mãe");
+            string maenome = Console.ReadLine();
+            Console.WriteLine("coloquei o nome do seu pai");
+            string painome = Console.ReadLine();
+            string paisnome = $"nome da sua mãe é {maenome} e do seu pai é {painome}. "; /* estamos colocando a string dentro dos "frase qualquer {Strng}" porem não 
+            pode ficar faltando o $ antes dos "" */
+            Console.WriteLine (paisnome);
+
+                                                // converte letras minusculas para letras maiusculas
+
+            Console.WriteLine("Iremos converte sua letra minuscula pra LETRA MAIUSCULA");
+            String maisculas = Console.ReadLine();
+            Console.WriteLine(maisculas.ToUpper()); // convertendo a letra minuscula em letra maiuscula
+
+                                                // CONVERTE LETRA MAIUSCULAS para letras minusculas
+
+            Console.WriteLine("Iremos converte sua letra MAIUSCULA para letra minuscula");
+            string minuscula = Console.ReadLine();
+            Console.WriteLine(minuscula.ToLower());
+
+
+                                                // aqui iremos imprimir a letra que desejamos da palavra
+
+            Console.WriteLine("coloque uma palavra ou numero");
+            String texto = Console.ReadLine(); // entrada de valor numeros ou letras
+            Console.WriteLine("coloque o numero que ele irar mostra a letra referente a contagem de letra do que foi escrito acima !");
+            int textnumber = Convert.ToInt32(Console.ReadLine());// ler a numeração do foi escolhido
+            Console.WriteLine(texto[textnumber]); // mostra a numeração 
+
+                                                // if exemplo abaixo
+
+
+            Console.WriteLine("coloque qualquer valor abaixo (valor X )");
+            int x = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("coloque outro valor abaixo (valor Y )");
+            int y = Convert.ToInt32(Console.ReadLine());
+           if (x < y)
+            {
+                Console.WriteLine("O maior valor é de Y");
+            }
+           else if (x == y)
+            {
+                Console.WriteLine("o valor de x é o mesmo valor que y");
+            }
+
+           else
+            {
+                Console.WriteLine("O maior valor é de X");
+            }
+
+            Console.WriteLine("coloque sua idade ! ");
+            int id = Convert.ToInt32(Console.ReadLine());
+             
+            if (id>= 18)
+            {
+                Console.WriteLine("você foi aceito com sucesso !");
+            }
+            else
+            {
+                Console.WriteLine("Você não foi aceito !");
+            }
+                        
+            
+
+
+            
+
+
+
+
+
+
+
+
+
+        }
+    }
+}
+
+
+
+    
